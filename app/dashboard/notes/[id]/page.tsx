@@ -91,7 +91,7 @@ export default function NoteDetailPage() {
         {/* Main Content (2/3) */}
         <div className="lg:col-span-2 space-y-10">
           <section className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight leading-none uppercase">{note.title}</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-zinc-900 dark:text-white tracking-tight leading-tight uppercase break-all line-clamp-3" style={{ overflowWrap: "anywhere" }}>{note.title}</h1>
             <div className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-2 text-zinc-400 font-bold">
                 <Calendar className="w-4 h-4" />

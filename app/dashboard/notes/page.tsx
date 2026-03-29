@@ -2,14 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Plus, 
-  Search, 
-  FileText, 
-  Sparkles, 
-  Trash2, 
-  ChevronRight, 
-  Upload, 
+import {
+  Plus,
+  Search,
+  FileText,
+  Sparkles,
+  Trash2,
+  ChevronRight,
+  Upload,
   X,
   FileUp,
   Loader2,
@@ -44,7 +44,7 @@ const PDFUploadProgress = ({
   if (!visible) return null;
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -70,7 +70,7 @@ const PDFUploadProgress = ({
 
         <div className="space-y-3 mb-8">
           <div className="h-2.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
-            <motion.div 
+            <motion.div
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: 4, ease: "easeInOut" }}
@@ -207,7 +207,7 @@ export default function NotesPage() {
     }
   };
 
-  const filteredNotes = notes.filter(note => 
+  const filteredNotes = notes.filter(note =>
     note.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -215,7 +215,7 @@ export default function NotesPage() {
     <div className="p-4 sm:p-8 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
       <AnimatePresence>
         {isUploading && (
-          <PDFUploadProgress 
+          <PDFUploadProgress
             visible={isUploading}
             fileName={uploadFileName}
             title="AI Summarizing..."
@@ -233,16 +233,16 @@ export default function NotesPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-white tracking-tight leading-tight">My Study Notes</h1>
           <p className="text-zinc-500 dark:text-zinc-400 mt-1 font-medium text-lg">Manage your PDFs and AI-generated summaries</p>
         </div>
-        
+
         <div className="flex items-center gap-3">
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            onChange={handleFileUpload} 
-            className="hidden" 
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileUpload}
+            className="hidden"
             accept=".pdf"
           />
-          <button 
+          <button
             onClick={() => fileInputRef.current?.click()}
             className="flex items-center justify-center gap-3 px-8 py-4 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-2xl shadow-xl shadow-indigo-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] w-full md:w-auto"
           >
@@ -256,9 +256,9 @@ export default function NotesPage() {
       <div className="flex flex-col sm:flex-row items-center gap-4">
         <div className="relative flex-1 w-full">
           <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400" />
-          <input 
-            type="text" 
-            placeholder="Search notes by title..." 
+          <input
+            type="text"
+            placeholder="Search notes by title..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-white dark:bg-zinc-900 p-5 pl-14 rounded-[1.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm focus:ring-2 focus:ring-indigo-500/20 outline-none font-medium"
@@ -292,7 +292,7 @@ export default function NotesPage() {
       ) : filteredNotes.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredNotes.map((note, idx) => (
-            <motion.div 
+            <motion.div
               key={note.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -305,7 +305,7 @@ export default function NotesPage() {
                 <div className="w-14 h-14 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-inner">
                   <FileText className="w-7 h-7" />
                 </div>
-                <button 
+                <button
                   onClick={(e) => handleDeleteNote(note.id, e)}
                   className="p-3 text-zinc-300 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all rounded-xl"
                 >
@@ -314,8 +314,8 @@ export default function NotesPage() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-white line-clamp-2 leading-tight group-hover:text-indigo-500 transition-colors">{note.title}</h3>
-                
+                <h3 className="text-xl font-bold text-zinc-900 dark:text-white line-clamp-2 leading-tight group-hover:text-indigo-500 transition-colors break-all">{note.title}</h3>
+
                 {note.summary && (
                   <div className="flex items-center gap-2 px-3 py-1 bg-amber-500/10 text-amber-600 rounded-lg w-fit">
                     <Sparkles className="w-3.5 h-3.5" />
@@ -343,7 +343,7 @@ export default function NotesPage() {
             <h3 className="text-2xl font-black text-zinc-900 dark:text-white">Empty Vault</h3>
             <p className="text-zinc-500 dark:text-zinc-400 font-medium">You haven't uploaded any notes yet. Let's change that and get studying!</p>
           </div>
-          <button 
+          <button
             onClick={() => fileInputRef.current?.click()}
             className="flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all"
           >
