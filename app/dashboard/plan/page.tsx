@@ -98,7 +98,8 @@ export default function StudyPlanPage() {
           noteIds: selectedNoteIds,
           studyHours,
           aiOptions
-        })
+        }),
+        cache: "no-store"
       });
 
       if (!response.ok) {

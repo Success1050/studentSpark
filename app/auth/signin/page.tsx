@@ -36,6 +36,7 @@ export default function SigninPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId: loggedInUserId }),
+          cache: "no-store"
         }).catch((err) => console.log("Motivation API error:", err));
 
         // Redirect to dashboard
@@ -52,14 +53,14 @@ export default function SigninPage() {
 
   return (
     <div className="flex min-h-screen bg-zinc-50 dark:bg-black items-center justify-center p-4">
-      <motion.div 
+      <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="w-full max-w-xl bg-white dark:bg-zinc-900 rounded-[2.5rem] overflow-hidden shadow-2xl border border-zinc-100 dark:border-zinc-800"
       >
         <div className="p-8 sm:p-12">
           {/* Back button */}
-          <button 
+          <button
             onClick={() => router.push("/")}
             className="group mb-8 flex items-center gap-2 text-zinc-400 hover:text-indigo-500 transition-colors"
           >
@@ -78,7 +79,7 @@ export default function SigninPage() {
           <p className="text-zinc-500 dark:text-zinc-400 mb-8">Sign in to continue your academic journey.</p>
 
           {error && (
-            <motion.div 
+            <motion.div
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               className="bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 p-4 rounded-xl text-red-600 dark:text-red-400 text-sm font-medium mb-6"
@@ -118,8 +119,8 @@ export default function SigninPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full h-14 pl-12 pr-12 bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-800 rounded-2xl outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 transition-all text-zinc-900 dark:text-white placeholder:text-zinc-400"
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
                 >

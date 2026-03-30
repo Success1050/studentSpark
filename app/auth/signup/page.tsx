@@ -52,6 +52,7 @@ export default function SignupPage() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userId: newUserId }),
+            cache: "no-store"
           }).catch((err) => console.log("Motivation API error:", err));
         }
 

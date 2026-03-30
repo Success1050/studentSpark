@@ -74,7 +74,8 @@ export default function QuizzesPage() {
         body: JSON.stringify({
           userId: user.id,
           noteId: selectedNoteId
-        })
+        }),
+        cache: "no-store"
       });
 
       if (!response.ok) {

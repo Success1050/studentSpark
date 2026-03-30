@@ -52,7 +52,8 @@ export default function DashboardOverviewPage() {
       const response = await fetch("https://studentspark-backend-n0vk.onrender.com/api/motivation-gen", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId })
+        body: JSON.stringify({ userId }),
+        cache: "no-store"
       });
       const data = await response.json();
       if (data.success) {

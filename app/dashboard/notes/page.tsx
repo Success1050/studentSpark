@@ -174,7 +174,8 @@ export default function NotesPage() {
           title: file.name,
           userId: user.id,
           file: base64
-        })
+        }),
+        cache: "no-store"
       });
 
       if (!response.ok) {
